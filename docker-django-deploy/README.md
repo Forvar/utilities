@@ -12,19 +12,34 @@ https://github.com/dockerfiles/django-uwsgi-nginx
 * Clone your repository inside the *django* folder.
 * Edit *django-conf/dependencies.sh* to add dependencies
 * Edit *django-conf/supervisor.conf* to start services
-* Add this code to the bottom of the settings.py file:
+* A file called *docker_local_settings.py* will be added to the django project, so add this code to the bottom of your django project *settings.py* file:
 ```
 try:
     from docker_local_settings import *
 except ImportError:
     pass
 ```
-A file called *docker_local_settings.py* will be added to the django project.
 * `chmod +x manage.sh`
 * `./manage.sh build`
+
+
+### Run
+
 * `./manage.sh run`
 * Go to http://127.0.0.1:7480 to see if it works
-* `./manage.sh attach`
+
+### Attach
+
+To open a bash inside the docker image run:
+```
+./manage.sh attach
+```
 
 
-Remember: the project folder is shared with the docker image, so any modification to the project is reflected on the docker machine.
+### Hotfixes
+
+Since the project folder is shared with the docker image, any modification to the django project is reflected on the docker machine. once changes has been applied to the django project you can restart running services with the following command:
+```
+./manage.sh refresh
+```
+This command will also perform the collect static operation.
