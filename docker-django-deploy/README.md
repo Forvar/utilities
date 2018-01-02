@@ -6,7 +6,7 @@ and speedy setup for Django with uWSGI and Nginx.
 Most of this setup comes from the excellent github on 
 https://github.com/dockerfiles/django-uwsgi-nginx
 
-### Build and run
+### Setup & Build
 
 * Clone this repository.
 * Clone your repository inside the *django* folder.
