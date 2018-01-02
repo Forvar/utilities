@@ -1,35 +1,30 @@
+# Django, uWSGI and Nginx in a container, using Supervisord
 
-1) clone this repository:
-	git clone https://github.com/dpaissan/utility_scripts.git
+This Dockerfile shows you *how* to build a Docker container with a fairly standard
+and speedy setup for Django with uWSGI and Nginx.
 
-2) Go to utility_scripts/docker-django-deploy directory
-	cd utility_scripts/docker-django-deploy
+Most of this setup comes from the excellent github on 
+https://github.com/dockerfiles/django-uwsgi-nginx
 
-3) Clone your django project here naming it "app". It must contain a requirements.txt file.
-	git clone <YourProject> app
+### Build and run
 
-4) Edit the Dockerfile, installing all things that your project needs. For example the current Dockerfile installs python3 redis and celery.
-
-5) Edit the supervisor-app.conf file starting all processes that you need. (keep uwsgi and nginx)
-
-6) Edit the uwsgi.ini file changing "phoneme_analysis.wsgi:application" with "<YourProject>.wsgi:application"
-
-7) run: "sudo docker build -t webapp ."
-
-8) run: "sudo docker -d -p 8000:80 webapp" to run docker and map the local port 8000 to it.
-
-
-NB: Remember to create a local settings with this content:
-
-from settings import *
-
-ALLOWED_HOSTS = ['*']
-MEDIA_ROOT = '/home/docker/persistent/media/'
-STATIC_ROOT = '/home/docker/volatile/static/'
-
-importing this file in settings.py with this code:
-
+* Clone this repository.
+* Clone your repository inside the *django* folder.
+* Edit *django-conf/dependencies.sh* to add dependencies
+* Edit *django-conf/supervisor.conf* to start services
+* Add this code to the bottom of the settings.py file:
+```
 try:
-    from local_settings import *
+    from docker_local_settings import *
 except ImportError:
     pass
+```
+A file called *docker_local_settings.py* will be added to the django project.
+* `chmod +x manage.sh`
+* `./manage.sh build`
+* `./manage.sh run`
+* Go to http://127.0.0.1:7480 to see if it works
+* `./manage.sh attach`
+
+
+Remember: the project folder is shared with the docker image, so any modification to the project is reflected on the docker machine.
