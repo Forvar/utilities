@@ -12,7 +12,7 @@ Video instructions: https://www.youtube.com/watch?v=uVZ313po9qg
 ### Build
 
 * Clone this repository.
-* Clone your repository inside the *django* folder.
+* Clone your Django project repository inside the *django* folder.
 * Edit *django-conf/dependencies.sh* to add dependencies
 * Edit *django-conf/supervisor.conf* to start services
 * A file called *docker_local_settings.py* will be added to the django project, so add this code to the bottom of your django project *settings.py* file:
