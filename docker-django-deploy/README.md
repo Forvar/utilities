@@ -26,9 +26,14 @@ except ImportError:
 * `./manage.sh build`
 
 
-### Run
+### Run/Start
 
+The first time a container must be started and created with the *run* command:
 * `./manage.sh run`
+* Go to http://127.0.0.1:7480 to see if it works
+
+An existing container is started with the *start* command:
+* `./manage.sh start`
 * Go to http://127.0.0.1:7480 to see if it works
 
 ### Attach
