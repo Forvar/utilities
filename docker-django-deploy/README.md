@@ -39,7 +39,7 @@ An existing container is started with the *start* command:
 
 ### Pull
 
-To pull from the repository, a shortcut was added to the manage.sh script. It simply perform the *git pull* command inside the django project directory:
+To pull from the repository, a shortcut was added to the manage.sh script. It simply performs a *git pull* command inside the django project directory:
 * `./manage.sh pull`
 
 
