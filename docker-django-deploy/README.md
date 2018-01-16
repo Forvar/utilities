@@ -36,6 +36,13 @@ An existing container is started with the *start* command:
 * `./manage.sh start`
 * Go to http://127.0.0.1:7480 to see if it works
 
+
+### Pull
+
+To pull from the repository, a shortcut was added to the manage.sh script. It simply perform the *git pull* command inside the django project directory:
+* `./manage.sh pull`
+
+
 ### Attach
 
 To open a bash inside the docker image run:
