@@ -1,0 +1,17 @@
+[alias]
+	g = checkout
+	c = commit -m
+	ca = commit -am
+	am = commit --amend
+	s = status
+	b = branch
+	f = fetch
+	l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg = log --graph --abbrev-commit --decorate                --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lgg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lggg = log --graph --decorate
+	a = add -p .
+	ap = add -p
+	type = cat-file -t
+	dump = cat-file -p
+	w = !git ap && git commit

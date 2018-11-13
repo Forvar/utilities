@@ -1,0 +1,11 @@
+if [ $# -eq 2 ]; then
+	version=$2
+	branch=$1
+	git fetch --all
+	git checkout master
+	git merge $branch --no-ff -X theirs -e --log -m "New version $version, merged new features from branch $branch. Edit this message." \
+	&& \
+	git tag $version
+else
+	(>&2 echo "Usage: $0 branch-with-the-new-features version-name")
+fi
