@@ -1,0 +1,1 @@
+curl -G "https://us-central1-notify-b7652.cloudfunctions.net/sendNotification" --data-urlencode "to=$1" --data-urlencode "text=$2" --data-urlencode "title=$3"
