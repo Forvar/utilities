@@ -1,43 +1,15 @@
-# Cli e-mails
-Command line e-mail client
+# Cli VPN client
+Command line VPN client
 
 ## Installation
-<ol>
-<li>
-Install ssmtp:
-<pre>
-sudo apt-get install ssmtp
-</pre>
-</li>
-<li>
-Edit the configuration file:
-<pre>
-sudo nano /etc/ssmtp/ssmtp.conf
-</pre>
-setting the following content:
-<pre>
-root=<b>username</b>@gmail.com
-mailhub=smtp.gmail.com:465
-FromLineOverride=YES
-AuthUser=<b>username</b>@gmail.com
-AuthPass=<b>password</b>
-UseTLS=YES
-</pre>
-</li>
-</ol>
+Install openconnect:
+```
+sudo apt install openconnect
+```
 
 ## Usage
-You can send an e-mail with:
-<ul>
-<li><b>subject:</b> How are you?</li>
-<li><b>text:</b> I'm fine, thaks.</li>
-<li><b>to:</b> someone@email.com</li>
-</ul>
-using the following command:
+You can connect to a vpn server "vpnserver.com" with:
 <pre>
-{
-  echo "Subject: <b>How are you?</b>"
-  echo
-  echo "<b>I'm fine, thaks.</b>"
-} | ssmtp <b>someone@email.com</b>
+sudo openconnect --juniper <b>vpnserver.com</b>
 </pre>
+You will be asked for username and password. After authentication just leave the terminal open.
