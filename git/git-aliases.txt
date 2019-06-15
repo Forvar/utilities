@@ -1,4 +1,5 @@
 [alias]
+        ls = ls-files
 	g = checkout
 	c = commit -m
 	ca = commit -am
